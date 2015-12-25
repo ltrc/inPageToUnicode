@@ -10,6 +10,27 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <script src="https://raw.githubusercontent.com/nehaljwani/inPageToUnicode/master/inPage2Unicode.js"></script>
+    <script>
+        function showRes(res) {
+            document.getElementById('result').innerHTML = res;
+        }
+        function convert(file) {
+            options = {};
+            options["rbtnUrdu"] = document.getElementById('languageUrdu').checked;
+            options["chkHehHamza"] = document.getElementById('replacementHehHamza').checked;
+            options["chkRKashida"] = document.getElementById('replacementKashidaSign').checked;
+            options["chkQuotMarks"] = document.getElementById('replacementQuotMarks').checked;
+            options["chkRDigits"] = document.getElementById('replacementRevDigits').checked;
+            options["chkReverseSSign"] = document.getElementById('replacementRevSSign').checked;
+            options["chkThousSeparator"] = document.getElementById('replacementRevTSep').checked;
+            options["chkBariYee"] = document.getElementById('replacementBariYa').checked;
+            options["chkRDoubleSpace"] = document.getElementById('replacementDSpace').checked;
+            options["chkRErabs"] = document.getElementById('replacementErabs').checked;
+            options["chkYearSign"] = document.getElementById('replacementYSign').checked;
+            inPage2Unicode(file, options, showRes);
+        }
+    </script>
     <title>inPage to Unicode Convertor by nehaljwani</title>
   </head>
 
@@ -32,11 +53,90 @@
 
         <section id="main_content">
           <h1>
-<a id="inpagetounicode" class="anchor" href="#inpagetounicode" aria-hidden="true"><span class="octicon octicon-link"></span></a>inPageToUnicode</h1>
+<a id="inpagetounicode" class="anchor" href="#inpagetounicode" aria-hidden="true"><span class="octicon octicon-link"></span></a>inPageToUnicode Convertor Demo</h1>
 
-<p>inPage to Unicode Convertor for  Perso-Arabic Scripts</p>
+<!--p>inPage to Unicode Convertor for  Perso-Arabic Scripts</p-->
 
 <p>Ported from <a href="http://dl.dropbox.com/u/2700846/_InPageConverter.zip">http://dl.dropbox.com/u/2700846/_InPageConverter.zip</a></p>
+
+        <table>
+            <thead>
+                Language
+            </thead>
+            <tr>
+                <td>
+                    <input type="radio" name="language" id="languageUrdu" checked>Urdu
+                </td>
+                <td>
+                    <input type="radio" name="language" id="languageArabic">Arabic
+                </td>
+            </tr>
+        </table>
+        <table>
+            <thead>
+                Replacements
+            </thead>
+            <tr>
+                <td style="text-align:left">
+                    <input type="checkbox" id="replacementHehHamza" checked>Correct heh with Hamza
+                </td>
+                <td style="text-align:left">
+                    <input type="checkbox" id="replacementKashidaSign">Remove Kashida Sign
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:left">
+                    <input type="checkbox" id="replacementQuotMarks">Reverse Quotation Marks
+                </td>
+                <td style="text-align:left">
+                    <input type="checkbox" id="replacementRevDigits" checked>Reverse Number / Digits
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:left">
+                    <input type="checkbox" id="replacementRevSSign" checked>Reverse Solidus (/) Sign
+                </td>
+                <td style="text-align:left">
+                    <input type="checkbox" id="replacementRevTSep" checked>Reverse Thousands Separator
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:left">
+                    <input type="checkbox" id="replacementBariYa" checked>Correct Bari Ya
+                </td>
+                <td style="text-align:left">
+                    <input type="checkbox" id="replacementDSpace" checked>Remove Double Space
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:left">
+                    <input type="checkbox" id="replacementErabs">Remove All Erabs
+                </td>
+                <td style="text-align:left">
+                    <input type="checkbox" id="replacementYSign" checked>Correct Year Sign
+                </td>
+            </tr>
+        </table>
+        <table>
+            <thead>
+                InPage file
+            </thead>
+            <tr>
+                <td>
+                    <input type="file" id="input" onchange="convert(this.files[0])">
+                </td>
+            </tr>
+        </table>
+        <table>
+            <thead>
+                Output
+            </thead>
+            <tr>
+                <td>
+                    <textarea style="width:100%" rows=10 id="result" readonly></textarea>
+                </td>
+            </tr>
+        </table>
         </section>
 
         <footer>
