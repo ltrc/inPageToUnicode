@@ -1,7 +1,7 @@
 # inPageToUnicode
 inPage to Unicode Convertor for  Perso-Arabic Scripts
 
-Ported from http://dl.dropbox.com/u/2700846/_InPageConverter.zip
+Ported from http://dl.dropbox.com/u/2700846/_InPageConverter.zip, originally available at [IT Duniya Forums](http://www.itdunya.com/t224292/)
 
 Demo available at: http://nehaljwani.github.io/inPageToUnicode/
 
